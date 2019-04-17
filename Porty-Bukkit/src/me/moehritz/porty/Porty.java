@@ -1,6 +1,5 @@
 package me.moehritz.porty;
 
-import lombok.Getter;
 import me.moehritz.porty.internal.PlayerListener;
 import me.moehritz.porty.internal.TeleportScheduler;
 import me.moehritz.porty.internal.TeleportTimer;
@@ -13,20 +12,15 @@ public class Porty extends JavaPlugin
 {
 
 	private static Porty instance;
-
-	public static Porty getInstance()
-	{
+	private TeleportScheduler teleportScheduler;
+	private TeleportTimer teleportTimer;
+	
+	public static Porty getInstance(){
 		return instance;
 	}
-
-	@Getter
-	private TeleportScheduler teleportScheduler;
-	@Getter
-	private TeleportTimer teleportTimer;
-
+	
 	@Override
-	public void onEnable()
-	{
+	public void onEnable(){
 		instance = this;
 
 		getServer().getMessenger().registerIncomingPluginChannel(this, IOStatics.CHANNEL, new InputHandler());
@@ -37,5 +31,11 @@ public class Porty extends JavaPlugin
 
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 	}
+	public TeleportScheduler getTeleportScheduler() {
+		return teleportScheduler;
+	}
 
+	public TeleportTimer getTeleportTimer() {
+		return teleportTimer;
+	}
 }

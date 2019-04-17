@@ -3,8 +3,6 @@ package me.moehritz.porty;
 import java.io.File;
 import java.io.IOException;
 
-import lombok.Getter;
-
 import me.moehritz.porty.api.PortyAPI;
 import me.moehritz.porty.api.TaskHandler;
 import me.moehritz.porty.api.TeleportRequestHandler;
@@ -42,13 +40,9 @@ public class Porty extends Plugin
 	}
 
 	private PortyAPI api;
-	@Getter
 	private TeleportRequestHandler tpaHandler;
-	@Getter
 	private PortyConfiguration config;
-	@Getter
 	private TaskHandler taskHandler;
-	@Getter
 	private TeleportTimer timer;
 
 	@Override
@@ -114,5 +108,21 @@ public class Porty extends Plugin
 		pm.registerCommand(this, new TpDenyCommand());
 		pm.registerCommand(this, new TpAcceptCommand());
 		pm.registerCommand(this, new PortyReloadCommand());
+	}
+
+	public TeleportRequestHandler getTpaHandler() {
+		return tpaHandler;
+	}
+
+	public PortyConfiguration getConfig() {
+		return config;
+	}
+
+	public TaskHandler getTaskHandler() {
+		return taskHandler;
+	}
+
+	public TeleportTimer getTimer() {
+		return timer;
 	}
 }

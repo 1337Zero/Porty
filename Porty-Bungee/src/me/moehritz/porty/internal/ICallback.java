@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.scheduler.ScheduledTask;
-import lombok.Setter;
 import me.moehritz.porty.Porty;
 import me.moehritz.porty.api.Callback;
 import me.moehritz.porty.api.CallbackRunnable;
@@ -18,7 +17,6 @@ public class ICallback implements Callback
 	private CallbackRunnable runnnable;
 	private ScheduledTask timeoutCheck;
 	private int uid;
-	@Setter
 	private int extraTime;
 
 	public ICallback(ProxiedPlayer player)
@@ -132,5 +130,9 @@ public class ICallback implements Callback
 	public int getUniqueID()
 	{
 		return uid;
+	}
+
+	public void setExtraTime(int extraTime) {
+		this.extraTime = extraTime;
 	}
 }

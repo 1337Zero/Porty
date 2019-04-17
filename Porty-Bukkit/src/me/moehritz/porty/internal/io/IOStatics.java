@@ -3,7 +3,7 @@ package me.moehritz.porty.internal.io;
 public final class IOStatics
 {
 
-	public static final String CHANNEL = "PORTY";
+	public static final String CHANNEL = "porty:";
 
 	public static final byte CALLBACK = 0;
 

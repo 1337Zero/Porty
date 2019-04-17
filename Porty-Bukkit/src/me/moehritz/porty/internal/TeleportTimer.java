@@ -3,7 +3,6 @@ package me.moehritz.porty.internal;
 import java.util.HashMap;
 import java.util.Map;
 
-import lombok.RequiredArgsConstructor;
 import me.moehritz.porty.Porty;
 import me.moehritz.porty.internal.io.CallbackSender;
 
@@ -31,14 +30,20 @@ public class TeleportTimer
 	{
 		return runningTimer.get(player);
 	}
-
-	@RequiredArgsConstructor
-	public class TeleportTimerRun implements Runnable
-	{
+	
+	public class TeleportTimerRun implements Runnable{
 
 		private final int uid;
 		private final Player player;
 		private boolean finished = false;
+
+		
+
+		public TeleportTimerRun(int uid, Player player) {
+			super();
+			this.uid = uid;
+			this.player = player;
+		}
 
 		@Override
 		public void run()
